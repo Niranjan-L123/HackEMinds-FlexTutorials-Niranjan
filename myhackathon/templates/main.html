@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body>
+<div id="container">
+    <h1 style="font-family:monospace">Flex Tutorials</h1>
+    <form action='{{ url_for("gfg")}}' method="post">
+    <input type="text" id="question" name="exerciseinp" placeholder="What workout would you like to explore?">
+    <button id="send" type="submit">Send </button>
+    
+    {% if text %}
+    <ul>
+        {% for row in text %}
+        <li>{{ row }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if text2 %}
+    <div id="videos">
+        {% for link in text2 %}
+        <iframe width="560" height="315" src="{{ link }}" frameborder="0" allowfullscreen></iframe>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
